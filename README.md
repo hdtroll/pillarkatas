@@ -5,7 +5,7 @@ OS - Rasbian
 
 Language - JavaScript
 
-Frameworks - NodeJS, Mocha, Chai
+Frameworks - NodeJS v10.16.3, Mocha v6.2.0, Chai v 4.2.0
 
 ## Installing language/frameworks
 
