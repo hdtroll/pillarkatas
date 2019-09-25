@@ -1,7 +1,15 @@
 // pencil write
 
-var PencilWrite;
+class Pencil {
+	constructor() {
+		this.PencilWrite = "She sells sea shells";
+	}
 
-PencilWrite = "She sells sea shells";
+	get_write() {
+		return this.PencilWrite;
+	}
+}
 
-module.exports = PencilWrite;
+pencil = new Pencil();
+
+module.exports = pencil.get_write();
