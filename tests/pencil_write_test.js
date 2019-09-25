@@ -8,5 +8,6 @@ describe('PencilWrite',function() {
 	it('should be defined', function() {
 		var pencilwrite = Pencil.get_write();
 		expect(pencilwrite).to.not.be.undefined;
+		expect(pencilwrite).to.eql('She sells sea shells');
 	});
 });
