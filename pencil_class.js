@@ -8,6 +8,10 @@ class Pencil {
 	get_write() {
 		return this.PencilWrite;
 	}
+	
+	write(characters) {
+		this.PencilWrite += characters;
+	}
 }
 
 pencil = new Pencil();
