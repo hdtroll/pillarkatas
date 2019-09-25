@@ -3,7 +3,8 @@
 class Pencil {
 	constructor() {
 		this.PencilWrite = 'She sells sea shells';
-		this.durability = 0;
+		this.original_durability = 0;
+		this.current_durability = 0;
 		this.durability_is_set = false;
 	}
 
@@ -17,7 +18,7 @@ class Pencil {
 	
 	get_durable_characters(characters) {
 		if(this.durability_is_set) {
-			var durability_left = this.durability
+			var durability_left = this.current_durability
 			var character_iterator = 0;
 			var characters_to_write = '';
 			
@@ -39,12 +40,16 @@ class Pencil {
 		return characters;
 	}
 	
+	sharpen() {
+		this.current_durability = this.original_durability;
+	}
+	
 	set_canvas(canvas) {
 		this.PencilWrite = canvas;
 	}
 	
 	set_durability(value) {
-		this.durability = value;
+		this.original_durability = this.current_durability = value;
 		this.durability_is_set = true;
 	}
 
