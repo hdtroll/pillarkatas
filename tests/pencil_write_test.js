@@ -6,6 +6,7 @@ var Pencil = require('../pencil_class.js');
 
 describe('PencilWrite',function() {
 	it('should be defined', function() {
-		expect(Pencil.get_write()).to.not.be.undefined;
+		var pencilwrite = Pencil.get_write();
+		expect(pencilwrite).to.not.be.undefined;
 	});
 });
