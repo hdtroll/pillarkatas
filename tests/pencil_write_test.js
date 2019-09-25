@@ -6,18 +6,22 @@ var Pencil = require('../pencil_class.js');
 
 describe('PencilWrite',function() {
 	it('basic write capabilties', function() {
-		var pencilwrite = Pencil.get_write();
-		expect(pencilwrite).to.not.be.undefined;
-		expect(pencilwrite).to.eql('She sells sea shells');
+		expect(Pencil.get_write()).to.not.be.undefined;
+		expect(Pencil.get_write()).to.eql('She sells sea shells');
+
 		Pencil.write(' down by the sea shore');
-		pencilwrite = Pencil.get_write();
-		expect(pencilwrite).to.eql('She sells sea shells down by the sea shore');
+		expect(Pencil.get_write()).to.eql('She sells sea shells down by the sea shore');
 	});
-	it('durability capabilities', function() {
+	it('lowercase durability capabilities', function() {
 		Pencil.set_canvas('');
 		Pencil.set_durability(4);
 		Pencil.write('test');
-		var pencilwrite = Pencil.get_write();
-		expect(pencilwrite).to.eql('test');
+		expect(Pencil.get_write()).to.eql('test');
+	});
+	it('uppercase durability capabilities', function() {
+		Pencil.set_canvas('');
+		Pencil.set_durability(4);
+		Pencil.write('Test');
+		expect(Pencil.get_write()).to.eql('Tes');
 	});
 });
