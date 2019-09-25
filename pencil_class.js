@@ -22,12 +22,11 @@ class Pencil {
 			var characters_to_write = '';
 			
 			while(durability_left > 0 && characters.length > character_iterator) {
-				if (characters[character_iterator].search(/[a-z]/) == 0) {
-					durability_left--;
-					characters_to_write += characters[character_iterator];
-				}
 				if (characters[character_iterator].search(/[A-Z]/) == 0) {
 					durability_left = durability_left - 2;
+					characters_to_write += characters[character_iterator];
+				} else if (characters[character_iterator].search(/[^\s]/) == 0) {
+					durability_left--;
 					characters_to_write += characters[character_iterator];
 				}
 				character_iterator++;
