@@ -5,7 +5,7 @@ var expect = require('chai').expect;
 
 describe('PencilWrite',function() {
 	it('should be defined', function() {
-		var PencilWrite = require('../pencil_write.js');
+		var PencilWrite = require('../pencil_class.js');
 		expect(PencilWrite).to.not.be.undefined;
 	});
 });
