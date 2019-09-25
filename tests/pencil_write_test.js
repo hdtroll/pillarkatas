@@ -17,6 +17,8 @@ describe('PencilWrite',function() {
 		Pencil.set_durability(4);
 		Pencil.write('test');
 		expect(Pencil.get_write()).to.eql('test');
+		Pencil.write(' 123');
+		expect(Pencil.get_write()).to.eql('test 123');
 	});
 	it('uppercase durability capabilities', function() {
 		Pencil.set_canvas('');
