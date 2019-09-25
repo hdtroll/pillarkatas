@@ -13,4 +13,11 @@ describe('PencilWrite',function() {
 		pencilwrite = Pencil.get_write();
 		expect(pencilwrite).to.eql('She sells sea shells down by the sea shore');
 	});
+	it('durability capabilities', function() {
+		Pencil.set_canvas('');
+		Pencil.set_durability(4);
+		Pencil.write('test');
+		var pencilwrite = Pencil.get_write();
+		expect(pencilwrite).to.eql('test');
+	});
 });
