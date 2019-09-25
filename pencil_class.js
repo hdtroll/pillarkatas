@@ -12,4 +12,4 @@ class Pencil {
 
 pencil = new Pencil();
 
-module.exports = pencil.get_write();
+module.exports = pencil;

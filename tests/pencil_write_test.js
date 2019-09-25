@@ -2,10 +2,10 @@
 
 'use strict';
 var expect = require('chai').expect;
+var Pencil = require('../pencil_class.js');
 
 describe('PencilWrite',function() {
 	it('should be defined', function() {
-		var PencilWrite = require('../pencil_class.js');
-		expect(PencilWrite).to.not.be.undefined;
+		expect(Pencil.get_write()).to.not.be.undefined;
 	});
 });
