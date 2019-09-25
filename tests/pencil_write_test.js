@@ -24,4 +24,10 @@ describe('PencilWrite',function() {
 		Pencil.write('Test');
 		expect(Pencil.get_write()).to.eql('Tes');
 	});
+	it('punctuation durability capabilities', function() {
+		Pencil.set_canvas('');
+		Pencil.set_durability(8);
+		Pencil.write('Test!');
+		expect(Pencil.get_write()).to.eql('Test!');
+	});
 });
