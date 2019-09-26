@@ -5,9 +5,9 @@ var expect = require('chai').expect;
 var Pencil = require('../pencil_class.js');
 
 describe('PencilTests',function() {
-	beforeEach( fucntion() {
+	beforeEach( function() {
 		Pencil.set_paper('');
-	}
+	});
 	
 	it('basic write capabilties', function() {
 		Pencil.set_paper('She sells sea shells');
@@ -80,5 +80,4 @@ describe('PencilTests',function() {
 		Pencil.write(text_to_write.substr(currently_written.length));
 		expect(Pencil.get_write()).to.eql('The quick brown fox jumps over the lazy dog, Fi');
 	});
-	
 });
