@@ -51,6 +51,23 @@ class Pencil {
 		}
 	}
 	
+	erase(characters) {
+		var current_paper = this.get_write();
+		var char_location = current_paper.lastIndexOf(characters);
+		var char_length = characters.length;
+		var add_spaces = '';
+		var new_paper = '';
+		var i;
+
+		if ( char_length > 0 && char_location >= 0 ) {
+			for (i = 0; i < char_length; i++) {
+				add_spaces += ' ';
+			}
+			new_paper = current_paper.substring(0,char_location) + add_spaces + current_paper.substring(char_location + char_length);
+			this.set_paper(new_paper);
+		}
+	}
+	
 	set_length(length) {
 		this.length = length;
 		this.has_length = true;

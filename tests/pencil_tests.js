@@ -80,4 +80,10 @@ describe('PencilTests',function() {
 		Pencil.write(text_to_write.substr(currently_written.length));
 		expect(Pencil.get_write()).to.eql('The quick brown fox jumps over the lazy dog, Fi');
 	});
+	
+	it('basic erase capabilities', function() {
+		Pencil.set_paper('How much wood would a woodchuck chuck if a woodchuck could chuck wood?');
+		Pencil.erase('chuck');
+		expect(Pencil.get_write()).to.eql('How much wood would a woodchuck chuck if a woodchuck could       wood?');
+	});
 });
