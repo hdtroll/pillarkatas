@@ -99,4 +99,10 @@ describe('PencilTests',function() {
 		Pencil.erase('');
 		expect(Pencil.get_write()).to.eql('How much wood would a woodchuck chuck if a woodchuck could chuck wood?');
 	});
+	
+	it('erase characters not found capabilities', function() {
+		Pencil.set_paper('How much wood would a woodchuck chuck if a woodchuck could chuck wood?');
+		Pencil.erase('woood');
+		expect(Pencil.get_write()).to.eql('How much wood would a woodchuck chuck if a woodchuck could chuck wood?');
+	});
 });
