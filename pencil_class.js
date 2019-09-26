@@ -1,8 +1,8 @@
 // pencil write
 
 class Pencil {
-	constructor() {
-		this.PencilWrite = 'She sells sea shells';
+	constructor () {
+		this.Paper = '';
 		this.original_durability = 0;
 		this.current_durability = 0;
 		this.durability_is_set = false;
@@ -10,12 +10,12 @@ class Pencil {
 		this.has_length = false;
 	}
 
-	get_write() {
-		return this.PencilWrite;
+	get_write () {
+		return this.Paper;
 	}
 	
-	write(characters) {
-		this.PencilWrite += this.get_durable_characters(characters);
+	write (characters) {
+		this.Paper += this.get_durable_characters(characters);
 	}
 	
 	get_durable_characters(characters) {
@@ -56,8 +56,8 @@ class Pencil {
 		this.has_length = true;
 	}
 	
-	set_canvas(canvas) {
-		this.PencilWrite = canvas;
+	set_paper(writings) {
+		this.Paper = writings;
 	}
 	
 	set_durability(value) {

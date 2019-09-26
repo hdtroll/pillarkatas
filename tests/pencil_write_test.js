@@ -4,8 +4,12 @@
 var expect = require('chai').expect;
 var Pencil = require('../pencil_class.js');
 
-describe('PencilWrite',function() {
+describe('PencilTests',function() {
+	beforeEach( fucntion() {
+		Pencil.set_paper('');
+	}
 	it('basic write capabilties', function() {
+		Pencil.set_paper('She sells sea shells');
 		expect(Pencil.get_write()).to.not.be.undefined;
 		expect(Pencil.get_write()).to.eql('She sells sea shells');
 
@@ -13,31 +17,26 @@ describe('PencilWrite',function() {
 		expect(Pencil.get_write()).to.eql('She sells sea shells down by the sea shore');
 	});
 	it('lowercase durability capabilities', function() {
-		Pencil.set_canvas('');
 		Pencil.set_durability(4);
 		Pencil.write('test');
 		expect(Pencil.get_write()).to.eql('test');
 	});
 	it('uppercase durability capabilities', function() {
-		Pencil.set_canvas('');
 		Pencil.set_durability(4);
 		Pencil.write('Test');
 		expect(Pencil.get_write()).to.eql('Tes');
 	});
 	it('lowercase with spaces durability capabilities', function() {
-		Pencil.set_canvas('');
 		Pencil.set_durability(7);
 		Pencil.write('test 123');
 		expect(Pencil.get_write()).to.eql('test 123');
 	});
 	it('uppercase with spaces durability capabilities', function() {
-		Pencil.set_canvas('');
 		Pencil.set_durability(7);
 		Pencil.write('Test 123');
 		expect(Pencil.get_write()).to.eql('Test 12');
 	});
 	it('punctuation durability capabilities', function() {
-		Pencil.set_canvas('');
 		Pencil.set_durability(8);
 		Pencil.write('Test!');
 		expect(Pencil.get_write()).to.eql('Test!');
@@ -45,12 +44,13 @@ describe('PencilWrite',function() {
 	it('sharpen capabilities', function() {
 		var durability = 20;
 		var text_to_write = 'The quick brown fox jumps over the lazy dog, Fido.';
-		Pencil.set_canvas('');
 		Pencil.set_durability(durability);
 		Pencil.write(text_to_write);
+
 		var currently_written = Pencil.get_write();
 		Pencil.sharpen();
 		Pencil.write(text_to_write.substr(currently_written.length));
+
 		currently_written = Pencil.get_write();
 		Pencil.sharpen();
 		Pencil.write(text_to_write.substr(currently_written.length));
@@ -59,13 +59,14 @@ describe('PencilWrite',function() {
 	it('sharpen with length limit capabilities', function() {
 		var durability = 20;
 		var text_to_write = 'The quick brown fox jumps over the lazy dog, Fido.';
-		Pencil.set_canvas('');
 		Pencil.set_length(2);
 		Pencil.set_durability(durability);
 		Pencil.write(text_to_write);
+
 		var currently_written = Pencil.get_write();
 		Pencil.sharpen();
 		Pencil.write(text_to_write.substr(currently_written.length));
+
 		currently_written = Pencil.get_write();
 		Pencil.sharpen();
 		Pencil.write(text_to_write.substr(currently_written.length));
