@@ -133,4 +133,10 @@ describe('PencilTests',function() {
 		Pencil.write_in_space('onion', 3);
 		expect(Pencil.get_write()).to.eql('An onion a day keeps the doctor away');
 	});
+	
+	it('editing capability testing overlapping characters', function() {
+		Pencil.set_paper('An       a day keeps the doctor away');
+		Pencil.write_in_space('artichoke', 3);
+		expect(Pencil.get_write()).to.eql('An artich@k@ay keeps the doctor away');
+	});
 });

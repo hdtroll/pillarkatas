@@ -22,7 +22,25 @@ class Pencil {
 	}
 	
 	write_in_space(characters, starting_space) {
-		this.Paper = this.Paper.substr(0,starting_space) + characters + this.Paper.substr(characters.length + starting_space);
+		var overlapping_string = this.Paper.substr(starting_space, characters.length)
+		var replacing_string = '';
+		
+		if ( overlapping_string.search(/[^\s]/) >= 0 ) {
+			var incrementer;
+			
+			for ( incrementer = 0; incrementer < characters.length; incrementer++ ) {
+				if (overlapping_string[incrementer] == ' ') {
+					replacing_string += characters[incrementer];
+				} else {
+					replacing_string += '@';
+				}
+			}
+			
+		} else {
+			replacing_string = characters
+		}
+		
+		this.Paper = this.Paper.substr(0,starting_space) + replacing_string + this.Paper.substr(characters.length + starting_space);
 	}
 	
 	get_durable_characters(characters) {
