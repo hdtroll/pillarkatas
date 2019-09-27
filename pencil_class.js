@@ -21,6 +21,10 @@ class Pencil {
 		this.Paper += this.get_durable_characters(characters);
 	}
 	
+	write_in_space(characters, starting_space) {
+		this.Paper = this.Paper.substr(0,starting_space) + characters + this.Paper.substr(characters.length + starting_space);
+	}
+	
 	get_durable_characters(characters) {
 		if(this.durability_is_set) {
 			var durability_left = this.current_durability

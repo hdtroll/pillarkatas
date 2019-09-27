@@ -127,4 +127,10 @@ describe('PencilTests',function() {
 		Pencil.erase('chuck');
 		expect(Pencil.get_write()).to.eql('How much wood would a woodchuck chuck if a woodch    could       wood?');
 	});
+	
+	it('editing capability testing', function() {
+		Pencil.set_paper('An       a day keeps the doctor away');
+		Pencil.write_in_space('onion', 3);
+		expect(Pencil.get_write()).to.eql('An onion a day keeps the doctor away');
+	});
 });
