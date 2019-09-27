@@ -8,6 +8,9 @@ class Pencil {
 		this.durability_is_set = false;
 		this.length = 0;
 		this.has_length = false;
+		this.original_eraser_durability = 0;
+		this.current_eraser_durability = 0;
+		this.eraser_durability_is_set = false;
 	}
 
 	get_write () {
@@ -52,6 +55,7 @@ class Pencil {
 	}
 	
 	erase(characters) {
+		characters = this.get_eraser_durability_result(characters);
 		var current_paper = this.get_write();
 		var char_location = current_paper.lastIndexOf(characters);
 		var char_length = characters.length;
@@ -68,6 +72,20 @@ class Pencil {
 		}
 	}
 	
+	get_eraser_durability_result(characters) {
+		if(this.eraser_durability_is_set) {
+			var characters_to_erase = characters;
+			if (this.current_eraser_durability > 0 && characters.length > this.current_eraser_durability) {
+				characters_to_erase = characters.substr(-this.current_eraser_durability);
+				this.current_eraser_durability = 0;
+			} else {
+				this.current_eraser_durability = this.current_eraser_durability - characters.length;
+			}
+			return characters_to_erase;
+		}
+		return characters;
+	}
+	
 	set_length(length) {
 		this.length = length;
 		this.has_length = true;
@@ -80,6 +98,11 @@ class Pencil {
 	set_durability(value) {
 		this.original_durability = this.current_durability = value;
 		this.durability_is_set = true;
+	}
+	
+	set_eraser_durability(value) {
+		this.original_eraser_durability = this.current_eraser_durability = value;
+		this.eraser_durability_is_set = true;
 	}
 
 }
