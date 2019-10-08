@@ -36,7 +36,7 @@ It's likely you'll need to also install chai also to the directory where your co
 
 `vi package-lock.json `
 
-after the first dependencies object add in '    "chai": "^4.2.0",'
+after the first dependencies object add in `    "chai": "^4.2.0",`
 
 `mv package-lock.json package.json`
 
